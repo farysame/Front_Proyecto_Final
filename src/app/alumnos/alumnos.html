@@ -1,0 +1,58 @@
+<h2>Gestión de Alumnos</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <label>Nombre:</label>
+  <input formControlName="nombre" type="nombre" />
+
+  <label>Apellido:</label>
+  <input formControlName="apellido" type="apellido" />
+
+  <label>Representante:</label>
+  <input formControlName="representante" type="representante" />
+
+  <label>Telefono:</label>
+  <input formControlName="telefono" type="telefono" /> 
+
+  <label>Email:</label>
+  <input formControlName="email" type="email" />
+
+  <label>Direccion:</label>
+  <input formControlName="direccion" type="direccion" />
+
+  <label>Nivel:</label>
+  <input formControlName="nivel" type="nivel" />
+
+  <label>Colegio:</label>
+  <input formControlName="dolegio" type="colegio" />
+
+  <button type="submit">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
+  <button type="button" (click)="resetForm()" *ngIf="editMode">Cancelar</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Representante</th>
+      <th>Telefono</th>
+      <th>Email</th>
+      <th>Direccion</th>
+      <th>Nivel</th>
+      <th>Colegio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.nombre }}</td>
+      <td>{{ user.email }}</td>
+      <td>
+        <button (click)="editUser(user)">Editar</button>
+        <button (click)="deleteUser(user.id)">Eliminar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

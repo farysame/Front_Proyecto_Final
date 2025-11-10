@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router} from '@angular/router';
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -9,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './login.html',
   styleUrls: ['./login.css']
 })
+
 export class LoginComponent {
   form: FormGroup;
 
