@@ -1,58 +1,45 @@
-<h2>Gestión de Alumnos</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Alumnos</title>
+  <link rel="stylesheet" href="alumnos.css">
+</head>
+<body>
 
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <label>Nombre:</label>
-  <input formControlName="nombre" type="nombre" />
+  <h1>Gestión de Alumnos</h1>
 
-  <label>Apellido:</label>
-  <input formControlName="apellido" type="apellido" />
+  <form id="formAlumno">
+    <input type="hidden" id="id">
+    <input type="text" id="nombre" placeholder="Nombre" required>
+    <input type="text" id="apellidos" placeholder="Apellidos" required>
+    <input type="text" id="representante" placeholder="Representante">
+    <input type="text" id="telefono" placeholder="Teléfono">
+    <input type="email" id="correo" placeholder="Correo">
+    <input type="text" id="direccion" placeholder="Dirección">
+    <input type="text" id="grado" placeholder="Grado">
+    <input type="text" id="colegio" placeholder="Colegio">
+    <button type="submit">Guardar Alumno</button>
+  </form>
+<br>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Representante</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Dirección</th>
+        <th>Grado</th>
+        <th>Colegio</th>
+      </tr>
+    </thead>
+    <tbody id="tablaAlumnos"></tbody>
+  </table>
 
-  <label>Representante:</label>
-  <input formControlName="representante" type="representante" />
-
-  <label>Telefono:</label>
-  <input formControlName="telefono" type="telefono" /> 
-
-  <label>Email:</label>
-  <input formControlName="email" type="email" />
-
-  <label>Direccion:</label>
-  <input formControlName="direccion" type="direccion" />
-
-  <label>Nivel:</label>
-  <input formControlName="nivel" type="nivel" />
-
-  <label>Colegio:</label>
-  <input formControlName="dolegio" type="colegio" />
-
-  <button type="submit">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
-  <button type="button" (click)="resetForm()" *ngIf="editMode">Cancelar</button>
-</form>
-
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Apellidos</th>
-      <th>Representante</th>
-      <th>Telefono</th>
-      <th>Email</th>
-      <th>Direccion</th>
-      <th>Nivel</th>
-      <th>Colegio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{ user.id }}</td>
-      <td>{{ user.nombre }}</td>
-      <td>{{ user.email }}</td>
-      <td>
-        <button (click)="editUser(user)">Editar</button>
-        <button (click)="deleteUser(user.id)">Eliminar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <script src="alumnos.ts"></script>
+</body>
+</html>
 

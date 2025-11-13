@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
-interface CrudAlumnos {
+interface Alumno {
   id: number;
   nombre: string;
   apellido: string;
@@ -26,7 +26,7 @@ interface CrudAlumnos {
 export class Alumnos  implements OnInit{
   
   form: FormGroup;
-  alumnos: Alumnos[] = [];
+  alumnos: Alumno[] = [];
   editMode = false;
   editAlumnoId: number | null = null;
 
@@ -51,7 +51,7 @@ export class Alumnos  implements OnInit{
   }
 
   loadAlumnos() {
-    this.http.get<Alumnos[]>('http://localhost:8080/api/alumnos').subscribe(data => {
+    this.http.get<Alumno[]>('http://localhost:8080/api/alumnos').subscribe(data => {
       this.alumnos = data;
     });
   }
@@ -74,7 +74,7 @@ export class Alumnos  implements OnInit{
     }
   }
 
-  editAlumno(alumno: Alumnos) {
+  editAlumno(alumno: Alumno) {
     this.editMode = true;
     this.editAlumnoId = alumno.id;
     this.form.patchValue({
